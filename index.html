@@ -93,37 +93,7 @@ p {
   text-wrap: pretty;
 }
 
-/* Scroll Animations - hidden by default, revealed by JS IntersectionObserver */
-.js-animations .fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
-}
-.js-animations .fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.js-animations .fade-in-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
-}
-.js-animations .fade-in-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-.js-animations .fade-in-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  will-change: opacity, transform;
-}
-.js-animations .fade-in-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+/* Scroll Animations - disabled for now to ensure content is always visible */
 
 /* Navigation */
 .nav {
@@ -1440,33 +1410,6 @@ p {
   </div>
 
   <script>
-    // Enable scroll animations only when JS is working
-    document.documentElement.classList.add('js-animations');
-
-    // Scroll animations
-    const animEls = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
-    try {
-      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, observerOptions);
-      animEls.forEach(el => observer.observe(el));
-    } catch (e) {
-      // Fallback: make everything visible immediately if observer fails
-      animEls.forEach(el => el.classList.add('visible'));
-    }
-
-    // Safety net: if elements are still invisible after 3 seconds, force them visible
-    setTimeout(() => {
-      animEls.forEach(el => {
-        if (!el.classList.contains('visible')) el.classList.add('visible');
-      });
-    }, 3000);
-
     // Nav scroll effect
     let ticking = false;
     window.addEventListener('scroll', () => {
