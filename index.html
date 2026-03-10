@@ -93,34 +93,34 @@ p {
   text-wrap: pretty;
 }
 
-/* Scroll Animations */
-.fade-in {
+/* Scroll Animations - hidden by default, revealed by JS IntersectionObserver */
+.js-animations .fade-in {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   will-change: opacity, transform;
 }
-.fade-in.visible {
+.js-animations .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
-.fade-in-left {
+.js-animations .fade-in-left {
   opacity: 0;
   transform: translateX(-30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   will-change: opacity, transform;
 }
-.fade-in-left.visible {
+.js-animations .fade-in-left.visible {
   opacity: 1;
   transform: translateX(0);
 }
-.fade-in-right {
+.js-animations .fade-in-right {
   opacity: 0;
   transform: translateX(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   will-change: opacity, transform;
 }
-.fade-in-right.visible {
+.js-animations .fade-in-right.visible {
   opacity: 1;
   transform: translateX(0);
 }
@@ -1385,8 +1385,9 @@ p {
   </footer>
 
   <!-- Netlify Forms honeypot (detected at build time, used for lead submission) -->
-  <form name="euts-lead" netlify netlify-honeypot="bot-field" hidden>
+  <form name="euts-lead" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
     <input name="bot-field">
+    <input name="form-name" type="hidden" value="euts-lead">
     <input name="name">
     <input name="type">
     <input name="location">
@@ -1439,16 +1440,32 @@ p {
   </div>
 
   <script>
+    // Enable scroll animations only when JS is working
+    document.documentElement.classList.add('js-animations');
+
     // Scroll animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    const animEls = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+    try {
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      animEls.forEach(el => observer.observe(el));
+    } catch (e) {
+      // Fallback: make everything visible immediately if observer fails
+      animEls.forEach(el => el.classList.add('visible'));
+    }
+
+    // Safety net: if elements are still invisible after 3 seconds, force them visible
+    setTimeout(() => {
+      animEls.forEach(el => {
+        if (!el.classList.contains('visible')) el.classList.add('visible');
       });
-    }, observerOptions);
-    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+    }, 3000);
 
     // Nav scroll effect
     let ticking = false;
