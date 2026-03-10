@@ -509,6 +509,15 @@ p {
   margin: 0 auto;
   text-align: center;
 }
+.restoration-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
 .restoration-eyebrow {
   font-size: clamp(0.5rem, 1.2vw, 0.65rem);
   font-weight: 400;
@@ -528,6 +537,18 @@ p {
   color: var(--black);
 }
 .restoration-text em {
+  font-style: italic;
+  color: var(--gold);
+}
+.restoration-quote {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.9;
+  color: var(--warm-gray);
+}
+.restoration-quote em {
   font-style: italic;
   color: var(--gold);
 }
@@ -561,13 +582,29 @@ p {
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 12%;
 }
 .image-section-content {
   text-align: center;
   color: var(--white);
   padding: 1.5rem;
+}
+.image-section-intro {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image-section-intro em {
+  font-style: italic;
+  color: var(--gold);
 }
 .image-section-content h2 {
   font-family: var(--font-display);
@@ -1197,7 +1234,7 @@ p {
   <section class="intro">
     <div class="intro-content fade-in">
       <p class="intro-text">
-        Building legendary, distinguished properties requires genuine passion, attention to detail, and relationships that are never rushed or replicated — the right builder, the right team, the right result. We've spent over twenty years collecting and cultivating the best of all three so <em>you don't have to</em>.
+        Building <em>legendary</em>, distinguished <em>properties</em> requires genuine passion, attention to detail, and relationships that are never rushed or replicated.
       </p>
     </div>
   </section>
@@ -1280,9 +1317,10 @@ p {
   <!-- Restoration & Recovery Section - MOVED ORIGINAL INTRO TEXT -->
   <section class="restoration-section fade-in">
     <div class="restoration-inner">
+      <h2 class="restoration-headline">Unrivaled Insurance Claim Consulting</h2>
       <p class="restoration-eyebrow">Restoration & Recovery</p>
-      <p class="restoration-text">
-        We believe that restoring a home is about more than reconstruction. It's about understanding what was lost, honoring what remains, and reimagining what's <em>possible</em>.
+      <p class="restoration-quote">
+        "We believe that restoring a home is about more than reconstruction. It's about understanding what was lost, honoring the original, and <em>imagining what is possible.</em>"
       </p>
       <p class="restoration-subtext">
         Our volume of work and passion to assist those dealing with sudden issues keeps our network of solution-oriented people focused, knowledgeable, and the best in the industry at solving any scale problem. Insurance often brings budgetary and various other inherent constraints — we have the experts who help owners navigate these waters, avoid common mistakes, and maximize their ability to get the best results in the least amount of time with the fewest obstacles.
@@ -1295,6 +1333,7 @@ p {
     <img src="midbreak.jpg" alt="Golden hour light over the Pacific Palisades coastline" loading="lazy">
     <div class="image-section-overlay">
       <div class="image-section-content fade-in">
+        <p class="image-section-intro">The right builder, the right team, the right result. We've spent over twenty years collecting and cultivating the best of all three so <em>you don't have to</em>.</p>
         <h2>Serving with Pride</h2>
         <p>California · Croatia · Beyond</p>
       </div>
