@@ -571,6 +571,102 @@ p {
   margin-right: auto;
 }
 
+/* Matchmaker Section */
+.matchmaker-section {
+  padding: 5rem 1.25rem;
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .matchmaker-section { padding: 8rem 4rem; }
+}
+.matchmaker-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.matchmaker-eyebrow {
+  font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.matchmaker-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+.matchmaker-body {
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-weight: 300;
+  color: var(--warm-gray);
+  line-height: 1.9;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ROI Pillars Section */
+.roi-section {
+  padding: 4rem 1.25rem;
+  background: var(--cream);
+  border-top: 1px solid var(--light-gray);
+}
+@media (min-width: 768px) {
+  .roi-section { padding: 6rem 4rem; }
+}
+.roi-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.roi-eyebrow {
+  font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .roi-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+}
+.roi-item {
+  border-top: 1px solid var(--gold-light);
+  padding-top: 1.75rem;
+}
+.roi-number {
+  font-family: var(--font-display);
+  font-size: clamp(0.6rem, 1vw, 0.7rem);
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.roi-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.roi-body {
+  font-size: clamp(0.75rem, 1.3vw, 0.875rem);
+  font-weight: 300;
+  color: var(--warm-gray);
+  line-height: 1.85;
+}
+
 /* Image Section */
 .image-section {
   position: relative;
@@ -1317,6 +1413,39 @@ p {
       <p class="restoration-subtext">
         Our volume of work and passion to assist those dealing with sudden issues keeps our network of solution-oriented people focused, knowledgeable, and the best in the industry at solving any scale problem. Insurance often brings budgetary and various other inherent constraints — we have the experts who help owners navigate these waters, avoid common mistakes, and maximize their ability to get the best results in the least amount of time with the fewest obstacles.
       </p>
+    </div>
+  </section>
+
+  <!-- Matchmaker / The Difference -->
+  <section class="matchmaker-section">
+    <div class="matchmaker-inner fade-in">
+      <p class="matchmaker-eyebrow">The Difference</p>
+      <h2 class="matchmaker-headline">Forensic Matchmaking for Distinguished Properties</h2>
+      <p class="matchmaker-body">Most referral services make an introduction and step aside. We do something different. Two decades at the intersection of technology and high-value property give us a view into the hidden architecture of these relationships — the financial structures, insurance dynamics, and operational realities that determine whether a project succeeds or stalls. We see the fit before the first handshake. We stay present until the result is right.</p>
+    </div>
+  </section>
+
+  <!-- ROI Pillars -->
+  <section class="roi-section">
+    <div class="roi-inner">
+      <p class="roi-eyebrow fade-in">Where the Value Lives</p>
+      <div class="roi-grid">
+        <div class="roi-item fade-in">
+          <p class="roi-number">I</p>
+          <h3 class="roi-title">Claim Optimization</h3>
+          <p class="roi-body">Insurance reports routinely leave line items on the table — unknown to owners, invisible without experience. We identify what's missing, document what's owed, and advocate for the full scope your property deserves. Our consultancy has paid for itself many times over through this process alone.</p>
+        </div>
+        <div class="roi-item fade-in">
+          <p class="roi-number">II</p>
+          <h3 class="roi-title">Interest Mitigation</h3>
+          <p class="roi-body">Every unnecessary week of a restoration timeline is money working against your position. We accelerate the process, properly routing payments and removing bottlenecks that carry-cost a project into diminishing returns. Speed here is not cutting corners — it is knowing precisely which corners don't need to be cut.</p>
+        </div>
+        <div class="roi-item fade-in">
+          <p class="roi-number">III</p>
+          <h3 class="roi-title">Security Sovereignty</h3>
+          <p class="roi-body">For owners who require it, we implement tech-forward privacy and security measures at both the property and digital level. Discreet, data-driven, and tailored to your exposure — from community infrastructure to personal digital hygiene. We bring experienced judgment to situations that cannot be resolved with off-the-shelf solutions.</p>
+        </div>
+      </div>
     </div>
   </section>
 
