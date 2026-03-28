@@ -610,60 +610,138 @@ p {
   margin: 0 auto;
 }
 
-/* ROI Pillars Section */
-.roi-section {
+/* Architectural Triage & Strategic Oversight */
+.triage-section {
   padding: 4rem 1.25rem;
   background: var(--cream);
   border-top: 1px solid var(--light-gray);
 }
 @media (min-width: 768px) {
-  .roi-section { padding: 6rem 4rem; }
+  .triage-section { padding: 7rem 4rem; }
 }
-.roi-inner {
-  max-width: 1000px;
+.triage-inner {
+  max-width: 760px;
   margin: 0 auto;
 }
-.roi-eyebrow {
+.triage-eyebrow {
   font-size: clamp(0.5rem, 1.2vw, 0.65rem);
   font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+.triage-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+  font-weight: 300;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+.triage-body {
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-weight: 300;
+  color: var(--warm-gray);
+  line-height: 1.9;
   margin-bottom: 3rem;
-  text-align: center;
 }
-.roi-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
+.consult-items {
+  border-top: 1px solid var(--light-gray);
 }
-@media (min-width: 768px) {
-  .roi-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+.consult-item {
+  border-bottom: 1px solid var(--light-gray);
+  cursor: pointer;
+  padding: 1.5rem 0;
+  -webkit-tap-highlight-color: transparent;
 }
-.roi-item {
-  border-top: 1px solid var(--gold-light);
-  padding-top: 1.75rem;
+.consult-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
-.roi-number {
+.consult-item-left {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+}
+.consult-number {
   font-family: var(--font-display);
   font-size: clamp(0.6rem, 1vw, 0.7rem);
   letter-spacing: 0.2em;
   color: var(--gold);
-  margin-bottom: 0.75rem;
   text-transform: uppercase;
+  min-width: 1.5rem;
 }
-.roi-title {
+.consult-title {
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
   font-weight: 400;
   color: var(--black);
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  line-height: 1.3;
 }
-.roi-body {
+.consult-expand-icon {
+  font-size: clamp(0.5rem, 1vw, 0.6rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+.consult-item.open .consult-expand-icon { opacity: 0.4; }
+.consult-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.consult-item.open .consult-detail {
+  max-height: 200px;
+  padding-top: 1rem;
+}
+.consult-detail p {
   font-size: clamp(0.75rem, 1.3vw, 0.875rem);
   font-weight: 300;
   color: var(--warm-gray);
+  line-height: 1.85;
+}
+.consult-cta {
+  margin-top: 2.5rem;
+  text-align: right;
+}
+.consult-cta-link {
+  font-size: clamp(0.55rem, 1vw, 0.65rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-light);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
+  font-family: var(--font-body);
+}
+.consult-cta-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* Footer — About the Principal */
+.footer-principal {
+  max-width: 600px;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.footer-principal-label {
+  font-size: clamp(0.45rem, 0.9vw, 0.55rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+}
+.footer-principal-text {
+  font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
   line-height: 1.85;
 }
 
@@ -1425,26 +1503,56 @@ p {
     </div>
   </section>
 
-  <!-- ROI Pillars -->
-  <section class="roi-section">
-    <div class="roi-inner">
-      <p class="roi-eyebrow fade-in">Where the Value Lives</p>
-      <div class="roi-grid">
-        <div class="roi-item fade-in">
-          <p class="roi-number">I</p>
-          <h3 class="roi-title">Claim Optimization</h3>
-          <p class="roi-body">Insurance reports routinely leave line items on the table — unknown to owners, invisible without experience. We identify what's missing, document what's owed, and advocate for the full scope your property deserves. Our consultancy has paid for itself many times over through this process alone.</p>
+  <!-- Architectural Triage & Strategic Oversight -->
+  <section class="triage-section">
+    <div class="triage-inner">
+      <p class="triage-eyebrow fade-in">Strategic Oversight</p>
+      <h2 class="triage-headline fade-in">Architectural Triage &amp; Strategic Oversight</h2>
+      <p class="triage-body fade-in">Beyond the referral, we provide forensic-level auditing for complex recovery projects. We navigate the technical demands of insurance, finance, and site security to ensure the owner's sovereignty remains intact.</p>
+      <div class="consult-items fade-in">
+
+        <div class="consult-item" onclick="toggleConsult(this)">
+          <div class="consult-item-header">
+            <div class="consult-item-left">
+              <span class="consult-number">I</span>
+              <h3 class="consult-title">Claim Optimization</h3>
+            </div>
+            <span class="consult-expand-icon">Scope</span>
+          </div>
+          <div class="consult-detail">
+            <p>Identifying lost or unknown line items in insurance reports to ensure builders are fully funded and owners stay focused on their lives — not the restoration.</p>
+          </div>
         </div>
-        <div class="roi-item fade-in">
-          <p class="roi-number">II</p>
-          <h3 class="roi-title">Interest Mitigation</h3>
-          <p class="roi-body">Every unnecessary week of a restoration timeline is money working against your position. We accelerate the process, properly routing payments and removing bottlenecks that carry-cost a project into diminishing returns. Speed here is not cutting corners — it is knowing precisely which corners don't need to be cut.</p>
+
+        <div class="consult-item" onclick="toggleConsult(this)">
+          <div class="consult-item-header">
+            <div class="consult-item-left">
+              <span class="consult-number">II</span>
+              <h3 class="consult-title">Capital Preservation</h3>
+            </div>
+            <span class="consult-expand-icon">Scope</span>
+          </div>
+          <div class="consult-detail">
+            <p>Accelerating timelines to mitigate carry-costs and implementing advanced payment routing to ensure project liquidity at every phase.</p>
+          </div>
         </div>
-        <div class="roi-item fade-in">
-          <p class="roi-number">III</p>
-          <h3 class="roi-title">Security Sovereignty</h3>
-          <p class="roi-body">For owners who require it, we implement tech-forward privacy and security measures at both the property and digital level. Discreet, data-driven, and tailored to your exposure — from community infrastructure to personal digital hygiene. We bring experienced judgment to situations that cannot be resolved with off-the-shelf solutions.</p>
+
+        <div class="consult-item" onclick="toggleConsult(this)">
+          <div class="consult-item-header">
+            <div class="consult-item-left">
+              <span class="consult-number">III</span>
+              <h3 class="consult-title">Security Sovereignty</h3>
+            </div>
+            <span class="consult-expand-icon">Scope</span>
+          </div>
+          <div class="consult-detail">
+            <p>Deploying discreet, data-driven privacy and security protocols at the community and property level — handling modern threats with intelligence-grade tools and experienced judgment.</p>
+          </div>
         </div>
+
+      </div>
+      <div class="consult-cta fade-in">
+        <a href="mailto:wave@everythingis.online?subject=Strategic%20Oversight%20Inquiry" class="consult-cta-link">Request a Strategic Consultation →</a>
       </div>
     </div>
   </section>
@@ -1510,6 +1618,10 @@ p {
           <span class="pin-icon">📍</span> Proudly serving Fire Recovery in Palisades, Malibu, Altadena and other affected communities.
         </p>
       </div>
+    </div>
+    <div class="footer-principal">
+      <p class="footer-principal-label">About the Principal</p>
+      <p class="footer-principal-text">Blaise Devitt is the founder of Everything Under the Sun. With over seven years of specialized experience in Global Architectural Security and Forensics, Blaise applies a rigorous, data-driven discipline to both digital and physical structures. Whether auditing silicon-level logic for global tech giants or triage roadmaps for Malibu estates, his approach is defined by one goal: Structural Integrity.</p>
     </div>
   </footer>
 
@@ -1597,6 +1709,10 @@ p {
     });
 
     // Service Card Toggle
+    function toggleConsult(el) {
+      el.classList.toggle('open');
+    }
+
     function toggleService(card) {
       const wasExpanded = card.classList.contains('expanded');
       // Close all other cards
